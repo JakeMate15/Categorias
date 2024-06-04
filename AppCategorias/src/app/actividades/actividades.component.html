@@ -1,1 +1,18 @@
-<p>actividades works!</p>
+<form>
+    <div class="mb-3">
+        <label for="txtNumeroUno" class="form-label">Numero 1</label>
+        <input type="number" class="form-control" id="txtNumeroUno" name="n1" [(ngModel)] = "n1"/>
+    </div>
+
+    <div class="mb-3">
+        <label for="txtNumeroDos" class="form-label">Numero 2</label>
+        <input type="number" class="form-control" id="txtNumeroDos" name="n2" [(ngModel)] = "n2"/>
+    </div>
+
+    <button type="button" class="btn btn-primary me-2" (click)="sumar()">Suma</button>
+    <button type="button" class="btn btn-success me-2" (click)="resta()">Resta</button>
+    <button type="button" class="btn btn-warning me-2" (click)="multiplicacion()">Multiplicación</button>
+    <button type="button" class="btn btn-danger me-2" (click)="division()">División</button>
+</form>
+
+<label class="form-label">El resultado es {{ res }}</label>
