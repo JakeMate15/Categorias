@@ -27,5 +27,23 @@ export class CategoriaService {
         return this.http.get<Categoria>(`${this.urlEndpoint}/${id}`);
     }
 
-    
+    crearCategoria(categoria: Categoria): Observable<Categoria> {
+        return this.http.post<Categoria>(this.urlEndpoint, categoria, {
+            headers: this.httpHeaders
+        });
+    }
+
+    eliminarCategoria(id: number): Observable<void> {
+        return this.http.delete<void>(`${this.urlEndpoint}/${id}`, {
+            headers: this.httpHeaders
+        });
+    }
+
+    actualizarCategoria(categoria: Categoria): Observable<Categoria> {
+        return this.http.put<Categoria>(`${this.urlEndpoint}/${categoria.idCategoria}`, categoria, {
+            headers: this.httpHeaders
+        });
+    }
+
+
 }
