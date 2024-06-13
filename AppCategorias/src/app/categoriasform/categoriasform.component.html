@@ -1,1 +1,22 @@
-<p>categoriasform works!</p>
+<div class="container mt-3">
+    <div class="card border-primary">
+        <div class="card-header">
+            <h2 class="text-center">{{ titulo }}</h2>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label for="nombreCategoria" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreCategoria" [(ngModel)]="categoria.nombreCategoria" name="nombreCategoria" required>
+                </div>
+                <div class="mb-3">
+                    <label for="descripcionCategorias" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcionCategorias" [(ngModel)]="categoria.descripcionCategorias" name="descripcionCategorias" required>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="categoria.idCategoria ? actualizarCategoria() : registrarCategoria()">
+                    {{ categoria.idCategoria ? 'Actualizar' : 'Registrar' }}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

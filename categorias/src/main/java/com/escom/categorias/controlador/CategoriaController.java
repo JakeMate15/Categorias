@@ -28,6 +28,12 @@ public class CategoriaController {
         return categoriasService.save(categoria);
     }
 
+    @PutMapping("/{id}")
+    public Categoria update(@PathVariable Long id, @RequestBody Categoria categoria) {
+        categoria.setIdCategoria(id);
+        return categoriasService.save(categoria);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         categoriasService.deleteById(id);

@@ -2,7 +2,7 @@
 <div class="container">
     <div class="card border-primary text-primary">
         <div class="card-header">
-            <h1 class="text-center text-primery">
+            <h1 class="text-center text-primary">
                 {{ titulo }}
             </h1>
         </div>
@@ -21,14 +21,14 @@
 
             <tbody>
                 <tr *ngFor="let d of listaCategorias">
-                    <td> {{ d.idCategoria }} </td>
-                    <td> {{ d.descripcionCategorias }} </td>
-                    <td> {{ d.nombreCategoria }} </td>
+                    <td>{{ d.idCategoria }}</td>
+                    <td>{{ d.nombreCategoria }}</td>
+                    <td>{{ d.descripcionCategorias }}</td>
                     <td>
-                        <button type="button" name="editar" class="btn btn-outline-primary">Actualizar</button>
+                        <button type="button" name="editar" class="btn btn-outline-primary" [routerLink]="['/categoriasForm', d.idCategoria]">Actualizar</button>
                     </td>
                     <td>
-                        <button type="button" name="eliminar" class="btn btn-outline-danger" (click)="delete()">Eliminar</button>
+                        <button type="button" name="eliminar" class="btn btn-outline-danger" (click)="delete(d)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
