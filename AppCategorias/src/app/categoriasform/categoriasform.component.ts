@@ -47,11 +47,17 @@ export class CategoriasformComponent implements OnInit {
     }
 
     registrarCategoria(): void {
-        this.categoriaService
-            .crearCategoria(this.categoria)
-            .subscribe(() => {
-                Swal.fire('Registrado', 'La categoría ha sido registrada', 'success');
-                this.router.navigate(['/categorias']);
-            });
+        if (this.categoria.descripcionCategorias.length < 5 || this.categoria.descripcionCategorias.length > 50) {
+            Swal.fire('Error', 'La descripción debe tener entre 5 y 50 caracteres', 'error');
+            return;
+        }
+        this.categoriaService.crearCategoria(this.categoria).subscribe(() => {
+            Swal.fire('Registrado', 'La categoría ha sido registrada', 'success');
+            this.router.navigate(['/categorias']);
+        }, error => {
+            Swal.fire('Error', 'Ocurrió un error al registrar la categoría', 'error');
+            console.error('Error al registrar la categoría', error);
+        });
     }
+    
 }
